@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "all 3": "concurrently \"npm run start\" \"cd ./Backend && npm run server\" \"mongod\"",
+    "all3": "concurrently \"npm run start\" \"cd ./Backend && npm run server\" \"mongod\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
