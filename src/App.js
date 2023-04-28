@@ -17,7 +17,7 @@ function App() {
         <Router>
 
           <Navbar />
-          <Alert />
+          <Alert message={"This is an Alert :)"} />
 
           <div className="container my-4">
             <Routes>
