@@ -1,7 +1,7 @@
 body{
   color:white;
   /* background: linear-gradient(45deg,rgb(36, 0, 80), rgb(0, 49, 66), rgb(0, 0, 0));  */
-  height: 100vh;
+  height: 100rem;
   background:conic-gradient(at left bottom, rgb(17, 24, 39), rgb(88, 28, 135), rgb(124, 58, 237));
 }
 
