@@ -1,11 +1,11 @@
 import React from 'react'
-import {Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
     return (
         <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/"><img className='ms-2' src="https://cdn-icons-png.flaticon.com/512/5956/5956876.png" alt="." style={{height: "25px"}} /> iNotebook</Link>
+                <Link className="navbar-brand" to="/"><img className='ms-2' src="https://cdn-icons-png.flaticon.com/512/5956/5956876.png" alt="." style={{ height: "25px" }} /> iNotebook</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -18,10 +18,8 @@ export default function Navbar() {
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-primary" type="submit">Search</button>
-                    </form>
+                    <Link className="btn btn-primary mx-1" to="/login" type="submit">Login</Link>
+                    <Link className="btn btn-primary mx-1" to="/signup" type="submit">Signup</Link>
                 </div>
             </div>
         </nav>

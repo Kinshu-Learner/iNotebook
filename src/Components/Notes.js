@@ -6,25 +6,24 @@ import AddNote from './AddNote';
 export default function Notes() {
 
     const context = useContext(NoteContext);
-    const { notes, getNotes } = context;
+    const { notes, getNotes, editNote } = context;
 
     useEffect(() => {
         getNotes();
         // eslint-disable-next-line
     }, []);
 
-    const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" })
+    const [note, setNote] = useState({id: "" ,etitle: "", edescription: "", etag: "" })
 
     const ref = useRef(null)
 
     const updateNote = (currentNote) => {
         ref.current.click();
-        setNote({ etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
+        setNote({id: currentNote._id ,etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
     }
 
     const handleOnClick = (event) => {
-        event.preventDefault();
-        console.log("Updating Note...")
+        editNote(note.id, note.etitle, note.edescription, note.etag);
     }
 
     const handleOnChange = (event) => {
@@ -49,25 +48,28 @@ export default function Notes() {
                             <form className='my-3'>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputEmail1" className="form-label" >Title</label>
-                                    <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" onChange={handleOnChange} />
+                                    <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" value={note.etitle} minLength={3} required onChange={handleOnChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label" >Description</label>
-                                    <input type="text" className="form-control" id="edescription" name='edescription' onChange={handleOnChange} />
+                                    <input type="text" className="form-control" id="edescription" value={note.edescription} name='edescription' minLength={5} required onChange={handleOnChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label" >Tag</label>
-                                    <input type="text" className="form-control" id="etag" name='etag' onChange={handleOnChange} />
+                                    <input type="text" className="form-control" id="etag" value={note.etag} name='etag' onChange={handleOnChange} />
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary" onClick={handleOnClick}>Update Note</button>
+                            <button type="submit" disabled={note.etitle.length<3 || note.edescription.length<5} className="btn btn-primary " data-bs-dismiss="modal" onClick={handleOnClick}>Update Note</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="row">
+                <code className="container">
+                    {!notes.length && "Nothing to display here for now :)"}
+                </code>
                 {notes.map((note) => {
                     return <Noteitem key={note._id} updateNote={updateNote} note={note} />
                 })}
