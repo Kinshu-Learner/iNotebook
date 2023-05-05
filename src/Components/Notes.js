@@ -3,13 +3,22 @@ import NoteContext from '../context/notes/NoteContext';
 import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Notes() {
 
     const context = useContext(NoteContext);
     const { notes, getNotes, editNote } = context;
 
+    const Navigate = useNavigate();
+
     useEffect(() => {
-        getNotes();
+        if(localStorage.getItem('token')){
+            getNotes();
+        }
+        else{
+            Navigate("/login");
+        }
         // eslint-disable-next-line
     }, []);
 
@@ -22,7 +31,7 @@ export default function Notes() {
         setNote({id: currentNote._id ,etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
     }
 
-    const handleOnClick = (event) => {
+    const handleOnClick = () => {
         editNote(note.id, note.etitle, note.edescription, note.etag);
     }
 

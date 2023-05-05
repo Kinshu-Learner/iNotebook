@@ -46,9 +46,9 @@ export default function Signup(props) {
     }
 
     return (
-        <div>
-            <h1 className="text-center">Sign Up</h1>
-            <form className={`${window.screen.width < 960 ? '' : 'w-50'} m-auto`} onSubmit={handleOnSubmit}>
+        <div id="signupdiv">
+            <h1 className="text-center" style={{marginTop:"40px"}}>Sign Up</h1>
+            <form className={`${window.screen.width < 960 ? 'w-75' : 'w-50'} m-auto`} onSubmit={handleOnSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
                     <input type="text" className="form-control" id="exampleInputEmail1" name="name" onChange={onChange} value={credentials.name} required minLength={3} aria-describedby="emailHelp" />

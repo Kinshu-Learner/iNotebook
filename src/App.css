@@ -1,7 +1,6 @@
 body{
   color:white;
-  /* background: linear-gradient(45deg,rgb(36, 0, 80), rgb(0, 49, 66), rgb(0, 0, 0));  */
-  height: 100rem;
+  height: 100em;
   background:conic-gradient(at left bottom, rgb(17, 24, 39), rgb(88, 28, 135), rgb(124, 58, 237));
 }
 
@@ -21,4 +20,18 @@ body{
 
 .modal{
   color: black;
+}
+
+#logindiv{
+  backdrop-filter: invert(10%);
+  height: 370px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+#signupdiv{
+  backdrop-filter: invert(10%);
+  height: 550px;
+  border: 2px solid white;
+  border-radius: 10px;
 }
