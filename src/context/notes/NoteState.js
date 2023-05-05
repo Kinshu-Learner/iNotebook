@@ -4,6 +4,8 @@ import { useState } from "react";
 const NoteState = (props) => {
   const initialNotes = []
 
+  const {showAlert} = props;
+
   const host = "http://localhost:5000"
 
   const [notes, setNotes] = useState(initialNotes);
@@ -36,6 +38,7 @@ const NoteState = (props) => {
     const note = await response.json();
 
     setNotes(notes.concat(note));
+    showAlert('Note has been Added Successfully!', "success");
   }
 
   const deleteNote = async (id) => {
@@ -50,6 +53,7 @@ const NoteState = (props) => {
 
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes);
+    showAlert('Note has been Deleted Successfully!', "success");
   }
 
   const editNote = async (id, title, description, tag) => {
@@ -64,6 +68,7 @@ const NoteState = (props) => {
     });
 
     getNotes();
+    showAlert('Note has been Updated Successfully!', "success");
   }
 
   return (

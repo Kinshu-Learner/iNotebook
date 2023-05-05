@@ -19,7 +19,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                     <Link className="btn btn-primary mx-1" to="/login" type="submit">Login</Link>
-                    <Link className="btn btn-primary mx-1" to="/signup" type="submit">Signup</Link>
+                    <Link className="btn btn-primary mx-1" to="/signup" type="submit">Sign Up</Link>
                 </div>
             </div>
         </nav>

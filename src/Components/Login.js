@@ -5,6 +5,8 @@ export default function Login(props) {
 
     const [credentials, setCredentials] = useState({email: "", password: ""})
 
+    const {showAlert} = props;
+
     const Navigate = useNavigate();
 
     const handleOnSubmit = async (event)=>{
@@ -25,10 +27,11 @@ export default function Login(props) {
         if(json.success){
             // Redirect to Home page
             localStorage.setItem('token', json.authtoken);
-            Navigate("/")
+            Navigate("/");
+            showAlert('Logged In Successfully!', "success");
         }
         else{
-            alert("Invalid Credentials")
+            showAlert('Please Login with Correct Credentials!', "danger");
         }
 
     };
@@ -43,13 +46,13 @@ export default function Login(props) {
             <form className={`${window.screen.width<960?'':'w-50'} m-auto`} onSubmit={handleOnSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" onChange={onChange} value={credentials.email} aria-describedby="emailHelp"/>
+                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" onChange={onChange} value={credentials.email} aria-describedby="emailHelp" required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className="form-control" onChange={onChange} value={credentials.password} id="password" name="password"/>
+                    <input type="password" className="form-control" onChange={onChange} value={credentials.password} required id="password" name="password"/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
         </div>
     )
