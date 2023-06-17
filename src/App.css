@@ -1,6 +1,6 @@
 body{
   color:white;
-  height: 100em;
+  min-height: 100vh;
   background:conic-gradient(at left bottom, rgb(17, 24, 39), rgb(88, 28, 135), rgb(124, 58, 237));
 }
 
