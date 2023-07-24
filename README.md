@@ -11,3 +11,9 @@ If a user has an existing account on iNotebook, they can simpy login using their
 
 ![Login](/Screenshots/iNotebook_Login2.png)
 
+<h2>Signup</h2>
+If a user DOES NOT have an existing account on iNotebook, they can create one, simply by clicking on the `Sign Up` button.
+
+![Signup](/Screenshots/iNotebook_Signup1.png)
+
+A user has to either Login or Signup before they can use iNotebook.
