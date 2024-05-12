@@ -45,7 +45,7 @@ If they click on the update icon, a modal will pop up where they can update what
 
 Once the user is done using the application, they can simply log out using the `Logout` button on the top right corner, so that no one else will be able to see their notes without logging in.
 
-`Bycrypt.js` and `JWT Authentication` have been used to enhance the overall sercutiry of the application.
+`Bycrypt.js` and `JWT Authentication` have been used to enhance the overall security of the application.
 
 ## License
 
